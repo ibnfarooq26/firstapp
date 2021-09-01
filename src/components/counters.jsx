@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Counter from './counter';
+import Elementmake from './elementmake'
 class Counters extends Component {
     state= { counters: [
         {id: 0, count:0},
@@ -33,9 +34,20 @@ class Counters extends Component {
         counters.forEach(c=> c.id==counterId? c.count=0 : c.count)
         this.setState({counters})
     }
+    createElement=()=>{
+        console.log('create element is working')
+        let counters= this.state.counters.map(c=>c);
+        console.log(counters)
+        let id= counters.length;
+        let newElement= {id, count:0};
+        console.log(newElement)
+        counters.push(newElement);
+        this.setState({counters})
+    }
    
     render() {  
                 return ( <div>
+                    <Elementmake onCreate={this.createElement}/>
 {this.state.counters.map(counter=><Counter 
 counter={counter}
 onRender={this.renderCounter}
