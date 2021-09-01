@@ -30,16 +30,16 @@ class Counters extends Component {
     
     resetCounter=(counterId)=>{
         console.log('resetCounter is working')
-        let counters=this.state.counters.map(c=>c);
+        const counters=this.state.counters.map(c=>c);
         counters.forEach(c=> c.id==counterId? c.count=0 : c.count)
         this.setState({counters})
     }
     createElement=()=>{
         console.log('create element is working')
-        let counters= this.state.counters.map(c=>c);
+        const counters= this.state.counters.map(c=>c);
         console.log(counters)
-        let id= counters.length;
-        let newElement= {id, count:0};
+        const id= counters.length;
+        const newElement= {id, count:0};
         console.log(newElement)
         counters.push(newElement);
         this.setState({counters})
